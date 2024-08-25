@@ -34,7 +34,7 @@ const resetButtonEl = document.querySelector('#reset');
 /*-------------------------------- Functions --------------------------------*/
 
 const init = () => {
-    console.log('initializing...');
+    
      board = ['','','','','','','','',''];
      
     turn = 'X';
@@ -48,7 +48,6 @@ const init = () => {
 
 
 const render = () => {
-    console.log('rendering...')
     updateBoard();
     updateMessage();
 
@@ -67,7 +66,7 @@ const updateMessage = () => {
     } else if (winner === false && tie === true) {
         messageEl.textContent = 'You tied!';
     
-    } else messageEl.textContent = `Player ${turn === 'X' ? 'O' : 'X'} wins!`;
+    } else messageEl.textContent = `Player ${turn} wins!`;
     
 };
 
@@ -129,5 +128,7 @@ resetButtonEl.addEventListener('click', function(event) {
     init();
 });
 
+document.addEventListener('DOMContentLoaded', init);
 
-//document.addEventListener('DOMContentLoaded', init);
+//BUGS: After a win you can still fill squares but with winning piece only?
+
