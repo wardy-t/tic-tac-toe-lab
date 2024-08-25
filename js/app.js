@@ -80,6 +80,7 @@ const checkForWinner = () => {
     }});
 };
 
+
 const checkForTie = () => {
     if (winner === true) {
         return;
@@ -106,6 +107,9 @@ const switchPlayerTurn = () => {
 
 /*----------------------------- Event Listeners -----------------------------*/
 const handleClick = (event) => {
+    if (winner) {
+        return
+    }
     const target = event.target;
 
     if (!target.classList.contains('sqr')) {
