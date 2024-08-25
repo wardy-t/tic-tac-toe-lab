@@ -75,10 +75,16 @@ const checkForWinner = () => {
     winner = false;
     winningCombos.forEach(Combo => {
         const [a, b, c] = Combo;
-        if (board[a] !== '' && board[a] === board[b] && board[a] === board[c]) {
-            winner = true;
-            console.log(winner);
-    }});
+        console.log("checking combos")
+
+        //if (board[a] !== '' && board[a] === board[b] && board[a] === board[c]) {
+        if (board[a] !== '') {
+            if (board[a] === board[b] && board[a] === board[c]) {
+                winner = true;
+                console.log(winner);
+            }
+        }
+    });
 };
 
 const checkForTie = () => {
@@ -88,7 +94,7 @@ const checkForTie = () => {
     if (board.every(square => square !== '')) {
     tie = true;
     }
-    console.log(tie);
+    console.log("tie:" + tie);
 
 };
 
@@ -107,6 +113,9 @@ const switchPlayerTurn = () => {
 
 /*----------------------------- Event Listeners -----------------------------*/
 const handleClick = (event) => {
+    if (winner === true) {
+        return;
+    }
     const target = event.target;
 
     if (!target.classList.contains('sqr')) {
@@ -114,6 +123,7 @@ const handleClick = (event) => {
     }
 
     const squareIndex = parseInt(target.getAttribute('id'), 10);
+    console.log("squareIndex:" + squareIndex)
 
     placePiece(squareIndex);
     checkForWinner();
@@ -130,4 +140,4 @@ resetButtonEl.addEventListener('click', function(event) {
 });
 
 
-//document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('DOMContentLoaded', init);

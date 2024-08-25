@@ -2,7 +2,7 @@ body {
     background-color: gainsboro;
     /* Use a system font, if none are available use an available sans-sarif */
     font-family: system-ui, sans-serif;
-    margin: 0;
+    margin-left: 200px;
   }
   
   .board {
